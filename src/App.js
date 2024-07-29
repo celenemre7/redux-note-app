@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import NoteForm from './components/NoteForm';
+import NoteList from './components/NoteList';
+import FilterInput from './components/FilterInput';
 import './App.css';
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <h1>NotesApp</h1>
+        <FilterInput />
+        <NoteForm />
+        <NoteList />
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;
